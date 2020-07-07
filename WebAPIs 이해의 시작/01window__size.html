@@ -17,6 +17,12 @@
 
   <body>
     <div class="tag">Window Size</div>
+    <!-- window size -->
+    <!-- screen은 브라우저 바깥에 있는 모니터 사이즈를 얘기하는 것
+        outer는 url + tap을 포함한 전체 사이즈를 말하는 것
+        inner는 웹페이지 뿐만 아니라 스크롤바가 있으면 스크롤바도 포함한 전체부분
+        documentElement.clientWidth는 전체적인 페이지긴 하지만 스크롤바가 있다면 
+        스크롤바는 제외하고 순수 document size 이다. -->
 
     <script>
       const tag = document.querySelector('.tag');
@@ -28,7 +34,8 @@
                 window.inner: ${window.innerWidth}, ${window.innerHeight}<br/>
                 documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
       }
-
+      //윈도우 사이즈가 변경될때마다 확인할 수 있도록 resize 이벤트를 등록하고
+      //resize이벤트 안에 윈도우 사이즈를 보여주는 함수를 추가해준다!
       window.addEventListener('resize', () => {
         updateTag();
       });
